@@ -1,0 +1,17 @@
+data:
+  kaggle_file: '../data/kaggle_songs.csv'
+  hot_songs_file: '../data/hot100_songs.csv'
+  not_hot_songs_file: '../data/not_hot_songs.csv'
+  hot_songs_features: '../data/hot100_songs_features.csv'
+  not_hot_songs_features: '../data/not_hot_songs_features.csv'
+  combined_data: '../data/combined_songs.csv'
+  clustered_songs: '../data/clustered_songs.csv'
+
+
+random_choice:
+  seed: 2020
+  selection: 20000
+
+
+k_means:
+  random_state: 1234
