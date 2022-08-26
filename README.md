@@ -139,4 +139,4 @@ However the application has a very interesting behaviour and regardless the song
 
 # ****Schema****
 
-![Schema.jpg](Spotify%20Music%20Suggestions%204f33f06b37f240ada47329a6a621a240/Schema.jpg)
+![Schema.jpg](https://github.com/JCabral88/Spotify_Music_Suggestions/blob/main/images/Schema.jpg?raw=true)
