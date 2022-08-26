@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import spotipy
-import songrecommender
 from spotipy.oauth2 import SpotifyClientCredentials
-import plot
 from PIL import Image
 from config import *
 import functions
