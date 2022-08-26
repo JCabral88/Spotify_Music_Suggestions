@@ -19,7 +19,6 @@ Jane, Gnod’s CTO approached us to solve the following challenges:
 - To suggest songs from an acoustic point of view and popular songs around the world
 - To suggest a song from the top 100 Billboard chart if the user is listening to a song present on that same chart.
 
-![image (1).png](https://github.com/JCabral88/Spotify_Music_Suggestions/blob/main/images/image_(1).png?raw=true)
 
 # **Data📄**
 
