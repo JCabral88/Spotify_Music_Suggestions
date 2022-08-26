@@ -1,0 +1,14 @@
+# Spotify API credentials
+config.py
+
+# IPYNB checkpoints
+.ipynb_checkpoints/
+
+
+# Pycache
+__pyccache__/
+.cache
+
+
+# Data files
+data/kaggle_songs.csv
