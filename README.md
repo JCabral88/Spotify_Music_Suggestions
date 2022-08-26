@@ -1,6 +1,6 @@
 # Spotify Music Suggestions
 
-![SpotifyTaigaGIF.gif](Spotify%20Music%20Suggestions%204f33f06b37f240ada47329a6a621a240/SpotifyTaigaGIF.gif)
+![SpotifyTaigaGIF.gif](https://github.com/JCabral88/Spotify_Music_Suggestions/blob/main/images/SpotifyTaigaGIF.gif?raw=true)
 
 The rapid growth of online music streaming platforms has brought into the market a new range of global music suggestions, promoting cultural diversity and expanding people's music taste. Nowadays, music listeners are offered many choices, and sometimes, it can even be overwhelming to select and browse a long list of music suggestions.
 
