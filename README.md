@@ -6,7 +6,7 @@ The rapid growth of online music streaming platforms has brought into the market
 
 Our project consists in creating a song recommender based on the audio features identified by Spotify. We aim to understand the patterns in music, and users listening habits, predicting the most relevant recommendations.
 
-![meme-7-1.jpg](Spotify%20Music%20Suggestions%204f33f06b37f240ada47329a6a621a240/meme-7-1.jpg)
+![meme-7-1.jpg](https://github.com/JCabral88/Spotify_Music_Suggestions/blob/main/images/meme-7-1.jpg?raw=true)
 
 # **Challenge🔥**
 
