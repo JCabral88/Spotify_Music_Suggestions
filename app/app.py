@@ -1,9 +1,7 @@
 import streamlit as st
 import pandas as pd
 import spotipy
-import songrecommender
 from spotipy.oauth2 import SpotifyClientCredentials
-import plot
 from PIL import Image
 from config import *
 import functions
@@ -16,14 +14,15 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id= client_id,
                                                            client_secret= client_secret))
 
 
-st.title('IronZaaaam - Mood Enhancer :boom:')
+st.title('IronZaam - Mood Enhancer :boom:')
 st.markdown('#')
 st.markdown("![Alt Text](https://media.giphy.com/media/3o6ZtjUZAD5Lf0QFLW/giphy.gif)")
 st.markdown('#')
 
-
-
-
+st.sidebar.title('THE NEW MUSIC APP')
+image = Image.open('img/logo_black.png')
+st.sidebar.image(image)
+st.sidebar.markdown('#')
 search_choices = ['Song', 'Artist']
 search_selected = st.sidebar.selectbox('Do you want to search for a song or an artist? ', search_choices)
 
@@ -80,7 +79,7 @@ if selected_track:
                 track_id = track['id']
                 track_album = track['album']['name']
                 img_album = track['album']['images'][1]['url']
-                songrecommender.save_album_image(img_album, track_id)
+                functions.save_album_image(img_album, track_id)
                 #st.write(track_id)
                 
 
@@ -96,58 +95,63 @@ if selected_track:
 
         
         if selected_track_choice == 'My Mood in Features':
-            st.markdown('###')
-            st.subheader('Your Song is featured in the Album: ')
-            image = functions.get_album_image(track_id)
-            st.image(image)
             st.markdown('#')
-            st.subheader('Those are the Audio Features of your song: ')
-            st.dataframe(df_features)
-            functions.feature_plot(df_features)
+            song_analyze_button = st.button('Analyze the song 👈')
+            if song_analyze_button:
+                st.markdown('###')
+                st.subheader('Your Song is featured in the Album: ')
+                image = functions.get_album_image(track_id)
+                st.image(image)
+                st.markdown('#')
+                st.subheader('Those are the Audio Features of your song: ')
+                st.dataframe(df_features)
+                functions.feature_plot(df_features)
             
         elif selected_track_choice == 'Do Your Magic':
             
             #st.subheader('Trust us with this one!!!!')
-            
-            similar_song_id = functions.app_check_song_on_df_and_make_suggestion(track_id, df_features)
-            df, link = functions.get_spotify_link(similar_song_id)
-            a_link = 'https://open.spotify.com/track/' + similar_song_id
-            st.markdown('##')
-            st.subheader(':hourglass: ..... analyzing your mood .... :hourglass:...mood recognized!')
             st.markdown('#')
-            st.markdown('##')
-            st.subheader('IronZaam.fit(:broken_heart: :broken_heart: :broken_heart:)')
-            st.subheader('song_predict = IronZaaam.predict(mood)')
-            st.subheader('print(song_predict)')
-            
-            st.write(df)
-            st.markdown('##')
-            
-            
-                       
-            col1, col2, = st.columns(2)
-
-            with col1:
-                st.header("listen to the song on ")
-
-                image = Image.open('img/spotify.png')
-                st.image(image, caption='spotify')
-
-            with col2:
-                st.header("... SPOTIFY")
-                st.write(a_link)
+            analyse_button = st.button('Analyse my mood 👈')
+            if analyse_button:
+                st.subheader(':hourglass: ..... analyzing your mood ....mood recognized :broken_heart: :broken_heart: :broken_heart:!')
+                
             st.markdown('#')
-            image = Image.open('img/music.jpg')
-            st.image(image, caption='music')
-            
-            st.markdown('##')
-            st.subheader('THE BIG QUESTION is: .... Is this song Hot :hot_pepper: or Not :shit:???')
-            st.markdown('##')
-            st.subheader('1) import Hot_or_Not_Score()')
-            st.subheader('2) score = IronZaaam.Hot_or_Not_Score(Mood, Song)')
-            st.markdown('#')
-            st.header('SCORE = :hot_pepper:')
-            
+            predict_button = st.button('Recommend me a song 👈')
+            if predict_button:
+                similar_song_id = functions.app_check_song_on_df_and_make_suggestion(track_id, df_features)
+                df, link = functions.get_spotify_link(similar_song_id)
+                a_link = 'https://open.spotify.com/track/' + similar_song_id
+                st.markdown('##')
+                st.subheader('song_predict = IronZaaam.predict(mood)')
+                        
+                st.write(df)
+                st.markdown('##')
+             
+                col1, col2, = st.columns(2)
+
+                with col1:
+                    st.header("listen to the song on ")
+                    image = Image.open('img/spotify.png')
+                    st.image(image, caption='spotify')
+
+
+                with col2:
+                    st.header("... SPOTIFY")
+                    st.write(a_link)
+                st.markdown('###')
+                st.markdown("![Alt Text](https://media.giphy.com/media/eNM4NlGpmCxzcXesjr/giphy.gif)")
+
+                st.markdown('##')
+                st.markdown('##')
+                st.subheader('THE BIG QUESTION is: ....')
+                st.subheader('Is this song Hot :hot_pepper: or Not :confused:???')
+                st.markdown('#')
+            button_clicked = st.button("Import Hot_or_Not_Score 🔺")
+            if button_clicked:
+                image = Image.open('img/hotsongs.jpg')
+                st.image(image, caption='hotsong')
+
+                     
            
 else:
     st.write('Please select a song')
