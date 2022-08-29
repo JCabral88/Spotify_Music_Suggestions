@@ -7,12 +7,19 @@ import yaml
 from config import *
 import pickle
 import spotipy
+import songrecommender
 import time
 from spotipy.oauth2 import SpotifyClientCredentials
 from PIL import Image
 import streamlit as st
 import matplotlib.pyplot as plt
 
+try:
+    with open ("params.yaml", "r") as f:
+        config = yaml.safe_load(f)
+except Exception as e:
+    print("Error reading the config file")
+    
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id= client_id,
                                                            client_secret= client_secret))
 
